@@ -39,16 +39,16 @@ def exe3(i3, i2, i1, i0, p1, p0, v):
 def exe4_simulando(a, b, c, d, e, f, g, h, i, j, k, l):
     @always_comb
     def comb():
-        a.next = 0
-        b.next = 0
-        c.next = 0
-        d.next = 0
-        e.next = 0
-        f.next = 0
-        g.next = 0
+        b1 = Signal(bool(0))
+        a.next = 1
+        b.next = 1
+        sub1 = exe4_half_sub(a,b,c,i)
+        d.next = 1
+        e.next = 1
+        sub2 = exe4_full_sub(d,e,c,f,j)
+        g.next = 1
         h.next = 0
-        i.next = 0
-        j.next = 0
+        sub3 = exe4_full_sub(g,h,b1,k)
         k.next = 0
 
     return instances()
